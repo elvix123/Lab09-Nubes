@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Nombre de Tu Empresa</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/images/<%= user.id === '1' ? 'logo.jpeg' : 'logo2.jpeg' %>" alt="Logo de Tu Empresa" class="logo">
+          </a>
+          
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="">Inicio</a>
+              <li class="nav-item">
+                <a class="nav-link" href="/productos/<%= user.id %>">Productos</a>
+              </li>
+              
+            <li class="nav-item">
+              <a class="nav-link" href="/empresa/<%= user.id%>">Empresa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contacto/<%= user.id%>">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  
+  <section class="bienvenida text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Bienvenido a <%= user.nombre %></h1>
+      <% if (user.id === '1') { %>
+      <p class="lead">Somos una empresa dedicada a la venta de calzado para todas las edades</p>
+      <% } else if (user.id === '2') { %>
+        <p class="lead">Somos una empresa dedicada a la venta de ropa de primera mano</p> 
+        
+        <% } %>
+      <a href="/productos/<%= user.id %>" class="btn btn-primary btn-lg">Ver nuestros productos</a>
+    </div>
+  </section>
+
+  <section class="servicios py-5">
+    <div class="container">
+      <h2 class="text-center">Nuestros Servicios</h2>
+      <div class="row">
+        <% if (user.id === '1') { %>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3 class="card-title">Calzando </h3>
+                <p class="card-text">Nuestro servicio de Reparación y Restauración de Calzado está diseñado para revivir y prolongar la vida útil de tus zapatos favoritos.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3 class="card-title">Entrega a Domicilio</h3>
+                <p class="card-text">Nuestro servicio de Entrega a Domicilio de Calzado está diseñado para brindarte la máxima comodidad al adquirir tus zapatos favoritos. </p>
+              </div>
+            </div>
+          </div>
+        <% } else if (user.id === '2') { %>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3 class="card-title">Telas 100% confortantes</h3>
+                <p class="card-text">Nuestro servicio de Telas 100% Confortantes te ofrece la oportunidad de disfrutar de una experiencia única de comodidad y suavidad</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3 class="card-title">Promociones para nuestros usuarios</h3>
+                <p class="card-text">Nuestro servicio de Promociones Exclusivas está diseñado para brindar a nuestros valiosos usuarios descuentos y ofertas especiales en una variedad de productos y servicios.</p>
+              </div>
+            </div>
+          </div>
+        <% } %>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <p>&copy; 2023 Nombre de Tu Empresa. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts de Bootstrap (jQuery y Popper.js son necesarios para Bootstrap) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
